@@ -1,0 +1,14 @@
+<%- include('header') -%>
+
+<% pageContent.forEach(function(item,i){ %>
+    <h1><%= item.title %></h1>
+    <% if(i == 0){%>
+        <%= item.content %>
+    <% } else { %>
+        <%= item.content.substring(0, 99) + " ..." %> <a href="#">Read More</a>
+    <% } %>
+    
+
+<% }) %>
+
+<%- include('footer') -%>

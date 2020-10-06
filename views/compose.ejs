@@ -1,0 +1,12 @@
+<%- include('header') -%>
+<h1><%= pageTitle %></h1>
+
+<form action="/" method="POST">
+    <p>Title</p>
+    <input type="text" name="postTitle">
+    <p>Post</p>
+    <textarea name="postContent" rows="10"></textarea>
+    <button class="btn btn-primary">Publish</button>
+</form>
+
+<%- include('footer') -%>
