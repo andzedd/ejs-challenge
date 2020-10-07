@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const { forEach } = require("lodash");
+const _ = require("lodash");
 
 let pageTitle = "";
 const posts = [];
@@ -45,8 +45,10 @@ app.get("/compose", function(req, res){
 })
 
 app.get("/posts/:postName", function(req,res){
+  const reqTitle = _.lowerCase(req.params.postName);
   posts.forEach(function(post){
-    if(post.title === req.params.postName){
+    const storedTitle = _.lowerCase(post.title);
+    if(storedTitle === reqTitle){
       res.render('post', {pageTitle: post.title, pageContent:post.content})
     }
   })
